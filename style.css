@@ -1,0 +1,131 @@
+/* 基础设置，让页面看起来干净现代 */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* 头部样式：居中对齐 */
+.profile-header {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+/* 头像样式：圆形，带边框 */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ecf0f1;
+    margin-bottom: 1rem;
+}
+
+.profile-info h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #bdc3c7;
+    margin: 0.5rem 0;
+}
+
+.contact-info {
+    font-size: 0.9rem;
+    color: #95a5a6;
+}
+
+/* 主体内容容器：限制最大宽度，居中显示 */
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.section-block {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+}
+
+.section-block h2 {
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+.section-block p {
+    text-align: justify;
+    text-indent: 2em; /* 段落首行缩进，符合学术规范 */
+}
+
+/* 论文卡片网格布局：自动适配屏幕，电脑端一行两个，手机端一行一个 */
+.pub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* 论文卡片整体样式（超链接） */
+.pub-card {
+    display: block; /* 让整个 a 标签变成一个块，整体可点击 */
+    text-decoration: none; /* 去除超链接的下划线 */
+    color: inherit; /* 保持文字颜色 */
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden; /* 保证图片不超出圆角边框 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 鼠标悬浮动画过渡 */
+}
+
+/* 鼠标悬浮在卡片上时的特效：微微上浮并加深阴影 */
+.pub-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* 论文代表图片样式 */
+.pub-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* 保证图片不变形，自动裁剪填充 */
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* 论文文本区域样式 */
+.pub-text {
+    padding: 1rem;
+}
+
+.pub-text h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    line-height: 1.4;
+}
+
+.pub-text .journal {
+    margin: 0;
+    font-style: italic;
+    color: #7f8c8d;
+    text-indent: 0; /* 取消这里的首行缩进 */
+}
+
+/* 页脚样式 */
+footer {
+    text-align: center;
+    padding: 1rem;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
