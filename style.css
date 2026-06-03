@@ -64,7 +64,39 @@ body {
     line-height: 1.5;       /* 紧凑舒适的行距 */
     margin: 0;
 }
+/* 社交/学术链接按钮组容器 */
+.social-links {
+    display: flex;           /* 开启弹性布局，让按钮并排 */
+    gap: 1rem;               /* 两个按钮之间的留白间距 */
+    margin-top: 1.2rem;      /* 与上方文字的距离 */
+    flex-wrap: wrap;         /* 如果屏幕太窄，允许自动换行，防止挤压 */
+}
 
+/* 通用按钮基础样式 */
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;             /* 图标和文字的间距 */
+    padding: 0.5rem 1.2rem;
+    background-color: #2c3e50; /* 深蓝灰基调 */
+    color: #ffffff !important; 
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* 鼠标悬浮特效 */
+.action-btn:hover {
+    background-color: #3498db; /* 悬浮时变为科技蓝 */
+    transform: translateY(-1px);
+}
+
+/* 按钮内图标微调 */
+.btn-icon {
+    flex-shrink: 0;
+}
 /* =========================================
    3. 主体内容布局（个人简介与著作）
    ========================================= */
@@ -164,7 +196,6 @@ body {
    5. 移动端响应式适配与页脚
    ========================================= */
 @media (max-width: 768px) {
-    /* 手机端名片自动转为居中上下排列，防止挤压 */
     .header-container {
         flex-direction: column;
         text-align: center;
@@ -173,7 +204,10 @@ body {
     .profile-info {
         text-align: center;
     }
-    /* 手机端允许图片高度自然释放 */
+    /* 手机端让按钮组居中对齐 */
+    .social-links {
+        justify-content: center; 
+    }
     .pub-img {
         height: auto;
         max-height: 250px;
