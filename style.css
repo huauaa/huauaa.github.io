@@ -1,69 +1,169 @@
 /* =========================================
-   著作网格布局（纯学术扁平化排版）
+   1. 基础全局设置
+   ========================================= */
+*, *::before, *::after {
+    box-sizing: border-box; /* 防止边框和内边距撑破元素 */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================================
+   2. 头部个人名片区域（极简学术风）
+   ========================================= */
+.profile-header {
+    background-color: #ffffff; /* 纯白清爽背景 */
+    padding: 4rem 1rem;
+    border-bottom: 1px solid #e0e0e0; /* 底部淡灰色分割线 */
+}
+
+/* 核心对齐容器：控制最大宽度并居中，实现左图右文 */
+.header-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;          /* 开启弹性盒布局 */
+    align-items: center;    /* 垂直方向居中对齐 */
+    gap: 3rem;              /* 照片和右侧文字之间的宽敞间距 */
+}
+
+/* 照片样式：小而精致的长方形相框效果 */
+.profile-img {
+    width: 130px;           /* 锁定宽度，显得克制、专业且协调 */
+    height: auto;           /* 关键：高度自动适应，绝对保证照片原横纵比不变 */
+    border: 1px solid #e0e0e0; /* 极细的浅灰边框 */
+    padding: 3px;           /* 边框和图片之间留出精致白边，形成实体相框质感 */
+    background-color: #fff;
+    object-fit: contain;    /* 确保整张照片完整呈现，绝不拉伸或裁剪 */
+    flex-shrink: 0;         /* 防止照片在屏幕变窄时被挤压变形 */
+}
+
+/* 个人信息栏样式（靠右） */
+.profile-info {
+    text-align: left;       /* 文字靠左对齐 */
+}
+
+/* 名字：换成学术风的衬线字体 */
+.profile-info h1 {
+    margin: 0 0 1rem 0;     /* 名字下方留出舒适的空隙 */
+    font-size: 3rem;
+    font-family: 'Georgia', 'Times New Roman', Times, serif; /* 经典学术字体 */
+    font-weight: normal;    /* 取消粗体，更显优雅书卷气 */
+    color: #2c3e50;         /* 融入整体的蓝灰基调 */
+}
+
+/* 多行联系信息 */
+.profile-info .details {
+    font-size: 1.1rem;
+    color: #666;            /* 专业柔和的深灰色 */
+    line-height: 1.5;       /* 紧凑舒适的行距 */
+    margin: 0;
+}
+
+/* =========================================
+   3. 主体内容布局（个人简介与著作）
+   ========================================= */
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* 通用白底内容块 */
+.section-block {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+    margin-bottom: 2rem;
+}
+
+/* 栏目标题：保持你喜欢的蓝色基调 */
+.section-block h2 {
+    border-bottom: 2px solid #3498db; /* 经典蓝色下划线 */
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+    color: #2c3e50;                   /* 深蓝灰色 */
+}
+
+/* 个人简介段落样式 */
+.section-block p {
+    text-align: justify;
+    text-indent: 2em; /* 严谨的学术段落首行缩进 */
+}
+
+/* =========================================
+   4. 著作网格布局（上图下文、尺寸固定、蓝色基调）
    ========================================= */
 .pub-grid {
     display: grid;
-    /* 采用自适应三列布局，宽度足够时显示3列，窄屏自动变2列或1列 */
+    /* 三列响应式网格：大屏自动3列，中屏2列，手机端1列 */
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem; /* 加大每篇论文之间的间距 */
+    gap: 2rem;              /* 论文卡片之间的呼吸间距 */
     margin-top: 1.5rem;
 }
 
-/* 取消原有卡片的边框和背景，采用极简风格 */
+/* 著作卡片整体（可点击链接） */
 .pub-card {
     display: flex;
     flex-direction: column;
-    text-decoration: none;
-    color: inherit;
-    background: transparent;
-    transition: transform 0.2s ease;
+    text-decoration: none;  /* 取消下划线 */
+    color: inherit;         /* 继承默认文字颜色 */
+    background: transparent;/* 纯学术扁平化，不要突兀的大背景块 */
+    transition: transform 0.2s ease; /* 轻微动画 */
 }
 
-/* 保留极轻微的上浮交互，取消突兀的大阴影 */
+/* 鼠标悬浮在论文卡片上时轻微上浮 */
 .pub-card:hover {
     transform: translateY(-3px);
 }
 
-/* 论文图片：核心尺寸控制 */
+/* 论文代表图片：锁定尺寸的核心区域 */
 .pub-img {
     width: 100%;
-    height: 190px;           /* 锁定所有图片的统一高度 */
-    object-fit: contain;     /* 关键属性：保证整张网络图完整显示，绝不裁剪或拉伸变形 */
-    background-color: #fff;  /* 图片容器底色设为纯白 */
-    border: 1px solid #eaeaea; /* 给图片加一个极其淡的细边框，起到统一画框的作用 */
-    padding: 4px;            /* 图片与边框之间留一点呼吸空间 */
-    border-radius: 4px;      /* 极其微小的圆角，显得精致 */
-    margin-bottom: 0.8rem;   /* 图片与下方标题的距离 */
-    box-sizing: border-box;
+    height: 190px;             /* 严格锁定所有图片的统一高度 */
+    object-fit: contain;       /* 关键：将论文图完整容纳在框内，绝不拉伸、绝不裁剪边缘 */
+    background-color: #ffffff; /* 图片容器底色设为纯白 */
+    border: 1px solid #eaeaea; /* 极其平淡的灰色细边框，起到统一“画框”的作用 */
+    padding: 4px;              /* 给网络架构图留出一点边距 */
+    border-radius: 4px;        /* 微小的圆角，增加精致感 */
+    margin-bottom: 0.8rem;     /* 图片与下方文字的间距 */
 }
 
-/* 论文文本区域：紧凑左对齐 */
+/* 论文文本区域 */
 .pub-text {
-    padding: 0; /* 去除多余内边距 */
+    padding: 0;
     text-align: left;
 }
 
-/* 论文标题：保留原有的蓝灰色调 */
+/* 论文标题：保留你的深蓝灰核心配色 */
 .pub-text h3 {
     margin: 0 0 0.4rem 0;
-    font-size: 1rem;         /* 字号微调，适应三列排版 */
-    color: #2c3e50;          /* 保持你的蓝灰基调 */
+    font-size: 1rem;
+    color: #2c3e50;            /* 你的深蓝灰主色调 */
     line-height: 1.4;
     font-weight: 600;
 }
 
-/* 期刊名称 */
+/* 期刊/学术会议名称 */
 .pub-text .journal {
     margin: 0;
-    font-style: italic;
-    color: #7f8c8d;
+    font-style: italic;        /* 经典的学术期刊斜体 */
+    color: #7f8c8d;            /* 柔和的灰色 */
     font-size: 0.9rem;
+    text-indent: 0;            /* 坚决取消这里的首行缩进 */
 }
 
 /* =========================================
-   响应式与页脚
+   5. 移动端响应式适配与页脚
    ========================================= */
 @media (max-width: 768px) {
+    /* 手机端名片自动转为居中上下排列，防止挤压 */
     .header-container {
         flex-direction: column;
         text-align: center;
@@ -72,12 +172,14 @@
     .profile-info {
         text-align: center;
     }
+    /* 手机端允许图片高度自然释放 */
     .pub-img {
-        height: auto; /* 手机端允许图片高度自适应释放 */
+        height: auto;
         max-height: 250px;
     }
 }
 
+/* 页脚 */
 footer {
     text-align: center;
     padding: 3rem 1rem 2rem 1rem;
