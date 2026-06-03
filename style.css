@@ -8,145 +8,62 @@ body {
     padding: 0;
 }
 
-/* 头部深色背景区域 */
+/* 头部区域：改为白色清爽背景，匹配参考图 */
 .profile-header {
-    background-color: #2c3e50;
-    color: white;
-    padding: 3rem 1rem;
+    background-color: #ffffff; /* 改为白色 */
+    padding: 4rem 1rem;
+    border-bottom: 1px solid #e0e0e0; /* 底部加一条细线与下方内容区分 */
 }
 
-/* 核心对齐容器：控制内容最大宽度并居中，实现左图右文 */
+/* 核心对齐容器：左图右文 */
 .header-container {
     max-width: 900px;
     margin: 0 auto;
-    display: flex;          /* 开启弹性盒布局 */
-    align-items: center;    /* 垂直方向居中对齐 */
-    gap: 2.5rem;            /* 照片和右侧文字之间的间距 */
+    display: flex;
+    align-items: center;
+    gap: 3rem; /* 加大照片和文字的间距 */
 }
 
-/* 照片样式：自适应长方形 */
+/* 照片样式：细边框相框效果 */
 .profile-img {
-    width: 160px;           /* 设定固定宽度，高度会根据照片原比例自动缩放，保持长方形 */
-    height: auto;           /* 关键：自动适应长宽比，绝不拉伸变形 */
-    border-radius: 4px;     /* 摒弃圆形，改为硬朗的微圆角长方形 */
-    border: 3px solid #ecf0f1;
-    object-fit: contain;    /* 确保整张照片完整呈现 */
-    flex-shrink: 0;         /* 防止照片在窄屏幕上被挤压变形 */
+    width: 170px;
+    height: auto;
+    border: 1px solid #ccc; /* 浅灰色细边框 */
+    padding: 3px;           /* 边框和图片之间留出白边，形成相框质感 */
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
-/* 个人信息栏样式（靠右） */
+/* 个人信息栏样式 */
 .profile-info {
-    text-align: left;       /* 文字整体靠左对齐 */
+    text-align: left;
 }
 
+/* 名字：换成学术风的衬线字体 (Serif) */
 .profile-info h1 {
-    margin: 0;
-    font-size: 2.5rem;
+    margin: 0 0 1rem 0; /* 名字下方留出一点空隙 */
+    font-size: 3rem;
+    font-family: 'Georgia', 'Times New Roman', Times, serif; /* 关键：学术衬线字体 */
+    font-weight: normal; /* 取消加粗，更优雅 */
+    color: #333;
 }
 
-.subtitle {
+/* 多行信息：行距调小，颜色调浅 */
+.profile-info .details {
     font-size: 1.1rem;
-    color: #bdc3c7;
-    margin: 0.5rem 0;
-}
-
-.contact-info {
-    font-size: 0.9rem;
-    color: #95a5a6;
-}
-
-/* 主体内容布局 */
-.container {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-}
-
-.section-block {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    margin-bottom: 2rem;
-}
-
-.section-block h2 {
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 0.5rem;
-    margin-top: 0;
-    color: #2c3e50;
-}
-
-.section-block p {
-    text-align: justify;
-    text-indent: 2em; /* 学术段落首行缩进 */
-}
-
-/* 著作网格布局 */
-.pub-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-/* 著作卡片（上图下文） */
-.pub-card {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.pub-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.pub-img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.pub-text {
-    padding: 1rem;
-}
-
-.pub-text h3 {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.05rem;
-    color: #2c3e50;
-    line-height: 1.4;
-}
-
-.pub-text .journal {
+    color: #666;        /* 灰色字体 */
+    line-height: 1.5;   /* 舒适的行距 */
     margin: 0;
-    font-style: italic;
-    color: #7f8c8d;
-    text-indent: 0;
 }
 
-/* 响应式设计：确保手机端浏览也同样完美 */
+/* 手机端响应式设计保留 */
 @media (max-width: 768px) {
     .header-container {
-        flex-direction: column; /* 手机端自动切换为上下排列，防止挤压 */
+        flex-direction: column;
         text-align: center;
         gap: 1.5rem;
     }
     .profile-info {
         text-align: center;
     }
-}
-
-footer {
-    text-align: center;
-    padding: 2rem 1rem;
-    color: #7f8c8d;
-    font-size: 0.9rem;
 }
