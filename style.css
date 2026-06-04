@@ -233,9 +233,38 @@ body {
     font-size: 0.9rem;
     text-indent: 0;            
 }
-
 /* =========================================
-   6. 移动端响应式适配与页脚
+  6. Recent News 样式
+   ========================================= */
+.news-list {
+    list-style: none;      /* 去掉默认的无序列表小圆点 */
+    padding: 0;
+    margin: 1.5rem 0 0 0;
+}
+
+.news-list li {
+    display: flex;         /* 开启弹性盒，让日期和内容完美并排 */
+    align-items: flex-start;
+    margin-bottom: 0.9rem; /* 每条动态之间的行距 */
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+/* 日期样式：固定宽度实现完美纵向对齐 */
+.news-list .news-date {
+    width: 100px;          /* 固定宽度，确保后面的文字全部对齐 */
+    font-weight: 600;
+    color: #3498db;        /* 使用主页标志性的科技蓝色 */
+    flex-shrink: 0;        /* 防止日期被挤压 */
+}
+
+/* 动态文字样式：顶格且两端对齐 */
+.news-list .news-text {
+    color: #333;
+    text-align: justify;
+}
+/* =========================================
+   7. 移动端响应式适配与页脚
    ========================================= */
 @media (max-width: 768px) {
     .header-container {
@@ -267,6 +296,12 @@ body {
     .tab-btn {
         font-size: 0.88rem;
         padding: 0.5rem 1.2rem;
+    }
+   /* 手机端新闻自动变为上下排版 */
+    .news-list li {
+        flex-direction: column;
+        gap: 0.2rem;
+        margin-bottom: 1.2rem;
     }
 }
 
