@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Huazhen Zhang - Academic Portfolio</title>
     <link rel="stylesheet" href="style.css">
+
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?1c911af2ed7c67a7436a90ed6913761f";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    
 </head>
 <body>
 
     <header class="profile-header">
         <div class="header-container">
-            <img src="resources/images/profile.jpg" alt="Profile Photo" class="profile-img">
+            <img src="resources/base/images/profile.jpg" alt="Profile Photo" class="profile-img">
             
             <div class="profile-info">
                 <h1>Huazhen Zhang</h1>
@@ -31,6 +42,7 @@
                         <svg class="btn-icon" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                         GitHub
                     </a>
+                </div>
             </div>
         </div>
     </header>
@@ -42,27 +54,72 @@
                 My research focuses on artificial intelligence modeling, with core areas encompassing point cloud processing and time-series modeling.</p>
         </section>
 
-        <section id="publications" class="section-block">
-            <h2>Publications</h2>
-            <div class="pub-grid">
-                
-                <a href="https://doi.org/10.1016/j.eswa.2025.130467" class="pub-card" target="_blank">
-                    <img src="resources/images/paper1.jpg" alt="Paper 1 Figure" class="pub-img">
-                    <div class="pub-text">
-                        <h3>Multi-scale hierarchical voxel-aware transformer network for 3D object detection in open-pit mines</h3>
-                        <p class="journal">Expert Systems with Applications</p>
-                    </div>
-                </a>
-
-                <a href="https://doi.org/10.1007/s11760-025-05091-7" class="pub-card" target="_blank">
-                    <img src="resources/images/paper2.jpg" alt="Paper 2 Figure" class="pub-img">
-                    <div class="pub-text">
-                        <h3>Multi-scale local geometry feature and global context learning with Kolmogorov-Arnold representation for 3D semantic segmentation</h3>
-                        <p class="journal">Signal, Image and Video Processing</p>
-                    </div>
-                </a>
-
+        <section id="works" class="section-block">
+            <h2>Research & Contributions</h2>
+            
+            <div class="tabs-container">
+                <button class="tab-btn active" onclick="openTab(event, 'P1')">Published Papers</button>
+                <button class="tab-btn" onclick="openTab(event, 'P2')">Submitted for Publication</button>
+                <button class="tab-btn" onclick="openTab(event, 'P3')">Projects & Notes</button>
             </div>
+
+            <div id="P1" class="tab-content active">
+                <div class="pub-grid">
+
+                    <a href="https://doi.org/10.1007/s11760-025-05091-7" class="pub-card" target="_blank">
+                        <img src="resources/p1/images/w2.jpg" alt="Paper 2 Figure" class="pub-img">
+                        <div class="pub-text">
+                            <h3>Multi-scale local geometry feature and global context learning with Kolmogorov-Arnold representation for 3D semantic segmentation</h3>
+                            <p class="journal">Signal, Image and Video Processing</p>
+                        </div>
+                    </a>
+                    
+                    <a href="https://doi.org/10.1016/j.eswa.2025.130467" class="pub-card" target="_blank">
+                        <img src="resources/p1/images/w1.jpg" alt="Paper 1 Figure" class="pub-img">
+                        <div class="pub-text">
+                            <h3>Multi-scale hierarchical voxel-aware transformer network for 3D object detection in open-pit mines</h3>
+                            <p class="journal">Expert Systems with Applications</p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <div id="P2" class="tab-content">
+                <div class="pub-grid">
+
+                    <a href="#" class="pub-card" target="_blank">
+                        <img src="resources/p2/images/w2.jpg" alt="Submitted Paper" class="pub-img">
+                        <div class="pub-text">
+                            <h3>Atmospheric scattering mechanism-inspired optical radiative encoding for 3D object detection in open-pit mines</h3>
+                            <p class="journal">IEEE Transactions on Pattern Analysis and Machine Intelligence</p>
+                        </div>
+                    </a>
+
+                    <a href="#" class="pub-card" target="_blank">
+                        <img src="resources/p2/images/w1.jpg" alt="Submitted Paper" class="pub-img">
+                        <div class="pub-text">
+                            <h3>Multi-level point cloud transform regression via overlapping region prediction</h3>
+                            <p class="journal">Engineering Applications of Artificial Intelligence</p>
+                        </div>
+                    </a>
+
+
+                </div>
+            </div>
+
+            <div id="P3" class="tab-content">
+                <div class="pub-grid">
+                    <a href="#" class="pub-card" target="_blank">
+                        <img src="resources/p3/images/w1.jpg" alt="Project Demo" class="pub-img">
+                        <div class="pub-text">
+                            <h3>...</h3>
+                            <p class="journal">...</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
         </section>
     </div>
 
@@ -70,5 +127,17 @@
         <p>© 2026 Huazhen Zhang. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        function openTab(evt, tabName) {
+            let contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            let buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 </html>
